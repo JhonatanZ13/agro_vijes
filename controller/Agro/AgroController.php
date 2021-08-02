@@ -41,10 +41,17 @@
                     setcookie("recuerdame",'1',time()+31556926 ,'/');
                 }
                 redirect(getUrl("Agro","Agro","getMain",false));
+            }else{
+                echo "datos incorrectos";
             }
         }
+
         public function logOut(){
             session_destroy();
             redirect(getUrl("Agro","Agro","getLogin",false));
+        }
+
+        public function registrarAgricultor(){
+            include_once '../view/agro/form_registro_agricultor.php';
         }
     }

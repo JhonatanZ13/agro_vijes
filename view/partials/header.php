@@ -35,7 +35,7 @@
                             <i class="fas fa-user"></i> <?= $_SESSION['nombre'] .' '. $_SESSION['apellido'] ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="<?=getUrl("Perfil","Perfil","getPerfil",false)?>">Perfil</a></li>
                             <li><a class="dropdown-item" href="<?=getUrl("Agro","Agro","logOut",false)?>">Cerrar sesion</a></li>
                         </ul>
                     </li>
