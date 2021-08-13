@@ -148,7 +148,7 @@
             </div>
 
             <div class="float-right">
-                <button class="btn btn-green">Editar perfil</button><button class="btn btn-primary ml-3">Mis productos</button>
+                <a href="<?php echo getUrl("Perfil", "Perfil", "misProductos");?>"><button class="btn btn-green">Editar perfil</button><button class="btn btn-primary ml-3">Mis productos</button></a>
             </div>
 
         </div>

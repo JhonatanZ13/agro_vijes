@@ -14,7 +14,7 @@
             $this->connect();
         }
         private function setConnect(){
-            require_once 'conf.php';
+            include_once 'conf.php';
             $this->server=$server;
             $this->user=$user;
             $this->pass=$pass;
@@ -24,7 +24,7 @@
         private function connect(){
             $this->link=mysqli_connect($this->server,$this->user,$this->pass,$this->database);
             if (!$this->link) {
-                die(mysqli_error($this->link));
+                //die(mysqli_error($this->link));
             }else{
                 //echo "¡CONEXION EXITOSA!";
             }

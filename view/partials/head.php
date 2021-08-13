@@ -10,6 +10,11 @@
     <!--JQuery-->
     <script src="js/jquery/jquery.js"></script>
     <script src="js/global.js"></script>
+    <script src="js/dropzone-5.7.0/dist/dropzone.js"></script>
+    <link rel="stylesheet" href="js/dropzone-5.7.0/dist/dropzone.css" type="text/css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    
 
     <!--JCrop (Jquery plugin for cropping images)-->
     <script src="js/custominputfile/js/jquery.Jcrop.min.js"></script>

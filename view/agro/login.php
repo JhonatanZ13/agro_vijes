@@ -56,7 +56,7 @@
                         </div>
                         <p class="text-center">¿No tienes una cuenta?</p>
                         <div class="pt-1 mb-4">
-                            <a href="<?= getUrl("Agro", "Agro", "registrarAgricultor", false) ?>"><button class="btn btn-green btn-lg btn-block" type="button">Soy agricultor(a)</button></a>
+                            <a href="<?= getUrl("Agro", "Agro", "formRegistrarAgricultor", false) ?>"><button class="btn btn-green btn-lg btn-block" type="button">Soy agricultor(a)</button></a>
                         </div>
                         <div class="pt-1 mb-4">
                             <button class="btn btn-green btn-lg btn-block" type="button">Soy comprador(a)</button>
