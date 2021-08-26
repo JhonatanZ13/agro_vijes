@@ -1,5 +1,19 @@
 $(document).ready(function () {
- 
+  $(document).on("click", "#modalBoton", function() {
+    var pro_id = $(this).attr("data-id");
+    var url = "ajax.php?modulo=Agro&controlador=Agro&funcion=getProducto";
+    $.ajax({
+        url: url,
+        data: "pro_id=" + pro_id,
+        type: "POST",
+        success: function(datos) {
+            $("#contenedor_modal").html(datos);
+            $("#modal").modal("show");
+        },
+    });
+    /* $("#modal").modal("show"); */
+  });
+
   $(document).on("change", "#subirFirma", function() {
     const seleccionArchivos = document.querySelector("#subirFirma"), 
         imagenPrevisualizacion = document.querySelector("#prevfirma");

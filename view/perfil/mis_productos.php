@@ -49,7 +49,7 @@
                                                         echo  $fecha->diffForHumans() ?>
                             </p>
 
-                            <button class="btn btn-green">Editar producto</button>
+                            <a href="<?php echo getUrl("Perfil","Perfil","editarProducto", array('pro_id' => $eje['pro_id'])) ?>"><button class="btn btn-green">Editar producto</button></a>
                             <button class="btn btn-danger" type="button" id="modalEliminar" data-id='<?= $eje['pro_id']?>' data-url='<?= getUrl("Perfil", "Perfil", "postDelete", false, "ajax"); ?>'>Eliminar producto</button>
                         </div>
                     </div>

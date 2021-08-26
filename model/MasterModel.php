@@ -27,6 +27,23 @@
             return $re;
         }
 
+        public function CargaSelected($campo, $tabla, $condicion){
+
+            $sql = "SELECT $campo FROM $tabla";
+
+            $consultar = $this->query($sql);
+            $num = mysqli_num_rows($consultar);
+            if ($num > 0) {
+                while ($dato = mysqli_fetch_row($consultar)) {
+                    if ($dato[0] == $condicion) {
+                        echo "<option selected value='" . $dato[0] . "'>" . $dato[1] . "</option>";
+                    } else {
+                        echo "<option value='" . $dato[0] . "'>" . $dato[1] . "</option>";
+                    }
+                }
+            }
+        }
+
         public function ConsultName($campo,$tabla){
     
             $sql = "SELECT * FROM $tabla";
@@ -37,4 +54,3 @@
             return $re;
         }
     }
-?>

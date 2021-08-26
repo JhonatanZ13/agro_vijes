@@ -1,7 +1,15 @@
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat';
 }
+
+input::placeholder {
+    font-family: 'Montserrat';
+    font-style: italic;
+}
+
 .btn-green{
     background-color: green;
     color: white;
@@ -81,3 +89,7 @@
 	}
 }
 
+.hover_cards:hover{
+    background-color: rgba(0, 165, 27, 0.486);
+    cursor: pointer;
+}

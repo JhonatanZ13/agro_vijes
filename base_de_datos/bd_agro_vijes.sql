@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-08-2021 a las 22:18:48
+-- Tiempo de generación: 26-08-2021 a las 15:47:18
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 7.4.21
 
@@ -1210,16 +1210,57 @@ CREATE TABLE `perfil` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Estructura de tabla para la tabla `productos`
 --
 
-CREATE TABLE `producto` (
+CREATE TABLE `productos` (
+  `id_producto` int(10) NOT NULL,
+  `nombre_producto` varchar(60) NOT NULL,
+  `tipo_producto` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `productos`
+--
+
+INSERT INTO `productos` (`id_producto`, `nombre_producto`, `tipo_producto`) VALUES
+(1, 'Tomate', 2),
+(2, 'Cilantro', 2),
+(3, 'Pimenton', 2),
+(4, 'Habichuela', 2),
+(5, 'Cebolla larga', 2),
+(6, 'Pepino', 2),
+(7, 'Aji', 2),
+(8, 'Zapallo', 2),
+(9, 'Aguacate', 3),
+(10, 'Banano', 3),
+(11, 'Lulo', 3),
+(12, 'Mango', 3),
+(13, 'Maracuya', 3),
+(14, 'Piña', 3),
+(15, 'Yuca', 4),
+(16, 'Arracacha', 4),
+(17, 'Frijol', 5),
+(18, 'Maiz', 5),
+(19, 'Cafes especiales (organico)', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos_publicados`
+--
+
+CREATE TABLE `productos_publicados` (
   `pro_id` int(10) NOT NULL,
   `pro_titulo` varchar(120) NOT NULL,
   `pro_desc` varchar(300) NOT NULL,
   `pro_vendedor` int(10) NOT NULL,
   `pro_ubicacion` int(10) NOT NULL,
   `pro_fecha` varchar(30) NOT NULL,
+  `precio` varchar(30) NOT NULL,
+  `cantidad_disponible` varchar(30) NOT NULL,
+  `cant_min_venta` varchar(30) NOT NULL,
+  `medida_peso` int(10) NOT NULL,
   `foto1` varchar(300) NOT NULL,
   `foto2` varchar(300) NOT NULL,
   `foto3` varchar(300) NOT NULL,
@@ -1227,15 +1268,14 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Volcado de datos para la tabla `productos_publicados`
 --
 
-INSERT INTO `producto` (`pro_id`, `pro_titulo`, `pro_desc`, `pro_vendedor`, `pro_ubicacion`, `pro_fecha`, `foto1`, `foto2`, `foto3`, `usu_id`) VALUES
-(1, 'Tomates', 'dsfsdf', 1, 1055, '2021-08-12 15:11:15', '../web/archivos/imagenes_productos/tomates.jpg', '../web/archivos/imagenes_productos/cebolla.jpg', '../web/archivos/imagenes_productos/repollo.jpg', 1),
-(2, 'Cebollas', 'dsfsf', 1, 1055, '2021-08-12 15:30:30', '../web/archivos/imagenes_productos/cebolla.jpg', '../web/archivos/imagenes_productos/repollo.jpg', '../web/archivos/imagenes_productos/tomates.jpg', 1),
-(3, 'Repollo', 'sfdsf', 1, 1055, '2021-08-12 15:35:18', '../web/archivos/imagenes_productos/repollo.jpg', '../web/archivos/imagenes_productos/tomates.jpg', '../web/archivos/imagenes_productos/cebolla.jpg', 1),
-(4, 'Cafe', 'gdfg', 1, 1055, '2021-08-13 14:32:28', '../web/img/no_image.jpg', '../web/img/no_image.jpg', '../web/img/no_image.jpg', 1),
-(6, 'Zanahoria', 'fdsf', 1, 1055, '2021-08-13 14:37:33', '../web/img/no_image.jpg', '../web/img/no_image.jpg', '../web/img/no_image.jpg', 1);
+INSERT INTO `productos_publicados` (`pro_id`, `pro_titulo`, `pro_desc`, `pro_vendedor`, `pro_ubicacion`, `pro_fecha`, `precio`, `cantidad_disponible`, `cant_min_venta`, `medida_peso`, `foto1`, `foto2`, `foto3`, `usu_id`) VALUES
+(1, 'Tomates', 'dsfsdf', 1, 1055, '2021-08-12 15:11:15', '2000', '120', '5', 1, '../web/archivos/imagenes_productos/tomates.jpg', '../web/archivos/imagenes_productos/cebolla.jpg', '../web/archivos/imagenes_productos/repollo.jpg', 1),
+(2, 'Cebollas', 'dsfsf', 1, 1055, '2021-08-12 15:30:30', '2500', '200', '5', 1, '../web/archivos/imagenes_productos/cebolla.jpg', '../web/archivos/imagenes_productos/repollo.jpg', '../web/archivos/imagenes_productos/tomates.jpg', 1),
+(3, 'Repollo', 'sfdsf', 1, 1055, '2021-08-12 15:35:18', '3000', '20', '1', 4, '../web/archivos/imagenes_productos/repollo.jpg', '../web/archivos/imagenes_productos/tomates.jpg', '../web/archivos/imagenes_productos/cebolla.jpg', 1),
+(6, 'Zanahoria', 'fdsf', 1, 1055, '2021-08-13 14:37:33', '1500', '300', '5', 1, '../web/img/no_image.jpg', '../web/img/noimage2.png', '../web/img/noimage2.png', 1);
 
 -- --------------------------------------------------------
 
@@ -1269,6 +1309,28 @@ CREATE TABLE `ruta_fotos` (
   `ruta` varchar(300) NOT NULL,
   `pro_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_medida`
+--
+
+CREATE TABLE `tipo_medida` (
+  `id_tipo_medida` int(10) NOT NULL,
+  `nombre_tipo_med` varchar(60) NOT NULL,
+  `abr_nombre` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_medida`
+--
+
+INSERT INTO `tipo_medida` (`id_tipo_medida`, `nombre_tipo_med`, `abr_nombre`) VALUES
+(1, 'Kilogramo', 'Kg'),
+(2, 'Libra', 'Lb'),
+(3, 'Arroba', '@'),
+(4, 'Unidad', 'Ud');
 
 -- --------------------------------------------------------
 
@@ -1341,16 +1403,30 @@ ALTER TABLE `perfil`
   ADD KEY `usu_id` (`usu_id`);
 
 --
--- Indices de la tabla `producto`
+-- Indices de la tabla `productos`
 --
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`pro_id`);
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id_producto`),
+  ADD KEY `tipo_producto` (`tipo_producto`);
+
+--
+-- Indices de la tabla `productos_publicados`
+--
+ALTER TABLE `productos_publicados`
+  ADD PRIMARY KEY (`pro_id`),
+  ADD KEY `medida` (`medida_peso`);
 
 --
 -- Indices de la tabla `ruta_fotos`
 --
 ALTER TABLE `ruta_fotos`
   ADD PRIMARY KEY (`ruta_id`);
+
+--
+-- Indices de la tabla `tipo_medida`
+--
+ALTER TABLE `tipo_medida`
+  ADD PRIMARY KEY (`id_tipo_medida`);
 
 --
 -- Indices de la tabla `tipo_producto`
@@ -1379,6 +1455,18 @@ ALTER TABLE `ciudad`
 --
 ALTER TABLE `perfil`
   ADD CONSTRAINT `usu_id` FOREIGN KEY (`usu_id`) REFERENCES `usuario` (`usu_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `tipo_producto` FOREIGN KEY (`tipo_producto`) REFERENCES `tipo_producto` (`tipo_pro_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `productos_publicados`
+--
+ALTER TABLE `productos_publicados`
+  ADD CONSTRAINT `medida` FOREIGN KEY (`medida_peso`) REFERENCES `tipo_medida` (`id_tipo_medida`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

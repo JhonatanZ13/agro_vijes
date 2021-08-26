@@ -14,18 +14,28 @@
         public function misProductos(){
             $obj = new PerfilModel();
             $id = $_SESSION['id'];
-            $sql = "SELECT * FROM producto WHERE usu_id = $id ORDER BY pro_fecha DESC";
+            $sql = "SELECT * FROM productos_publicados WHERE usu_id = $id ORDER BY pro_fecha DESC";
 
             $eje = $obj->query($sql);
 
             include_once '../view/perfil/mis_productos.php';
         }
 
+        public function editarProducto(){
+            $obj = new PerfilModel();
+            $id = $_GET['pro_id'];
+
+            $sql = "SELECT * FROM productos_publicados WHERE pro_id = $id";
+            $ejecutar = $obj->query($sql);
+            
+            include_once "../view/perfil/editarProducto.php";
+        }
+
         public function postDelete(){
             $obj = new PerfilModel();
             $id = $_POST['pro_id'];
 
-            $sql = "DELETE FROM producto WHERE pro_id = $id";
+            $sql = "DELETE FROM productos_publicados WHERE pro_id = $id";
             $eje = $obj->query($sql);
         }
-    }
+    } 

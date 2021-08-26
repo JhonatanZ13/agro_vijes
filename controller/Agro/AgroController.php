@@ -10,17 +10,34 @@ Carbon::setlocale('es');
 
 class AgroController
 {
+    public function getHome(){
 
-    public function getMain()
-    {
-        $obj = new AgroModel();
-        $sql = "SELECT * FROM producto ORDER BY pro_fecha DESC";
-        $eje = $obj->query($sql);
-        $fecha = new Carbon("2021-07-27 15:30:00");
-        include_once '../view/agro/inicio.php';
+        include_once "../view/home.php";
     }
 
-    
+    public function getProductos()
+    {
+        $obj = new AgroModel();
+        $sql = "SELECT * FROM productos_publicados ORDER BY pro_fecha DESC";
+        $ejecutar = $obj->query($sql);
+
+        $productos_x_pagina = 6;
+        $paginas = mysqli_num_rows($ejecutar) / $productos_x_pagina;
+        $paginas = ceil($paginas);
+
+        $indice = ($_GET['pagina'] - 1) * $productos_x_pagina;
+        $sql = "SELECT * FROM productos_publicados ORDER BY pro_fecha DESC LIMIT $indice, $productos_x_pagina";
+        $eje = $obj->query($sql);
+        
+        
+        $fecha = new Carbon("2021-07-27 15:30:00");
+        include_once '../view/agro/productos.php';
+    }
+
+    public function getAboutUs(){
+
+        include_once "../view/agro/about.php";
+    }
 
     public function getLogin()
     {
@@ -53,7 +70,7 @@ class AgroController
                 setcookie("usu_pass", $usu_pass, time() + 31556926, '/');
                 setcookie("recuerdame", '1', time() + 31556926, '/');
             }
-            redirect(getUrl("Agro", "Agro", "getMain", false));
+            redirect(getUrl("Agro", "Agro", "getHome", false));
         } else {
             echo "datos incorrectos";
         }
@@ -179,7 +196,7 @@ class AgroController
     public function insertProducto()
     {
         $obj = new AgroModel();
-        $id = $obj->autoIncrement("producto", "pro_id");
+        $id = $obj->autoIncrement("productos_publicados", "pro_id");
         $id_usu = $_SESSION['id'];
         $pro_titulo = $_POST['pro_titulo'];
         $pro_desc = $_POST['pro_desc'];
@@ -212,9 +229,21 @@ class AgroController
                 $ruta_foto3="../web/img/no_image.jpg";
             }
 
-        $sql = "INSERT INTO producto VALUES($id, '$pro_titulo', '$pro_desc', $id_usu, '$pro_ubicacion', NOW(), '$ruta_foto1','$ruta_foto2','$ruta_foto3', $id_usu)";
+        $sql = "INSERT INTO productos_publicados VALUES($id, '$pro_titulo', '$pro_desc', $id_usu, '$pro_ubicacion', NOW(), '$ruta_foto1','$ruta_foto2','$ruta_foto3', $id_usu)";
         $ejecutar = $obj->query($sql);
         //echo $sql;
         redirect(getUrl("Agro","Agro","getMain"));
     }
+
+    public function getProducto(){
+        $obj = new AgroModel();
+        $id = $_POST['pro_id'];
+
+        $sql = "SELECT * FROM productos_publicados WHERE pro_id = $id";
+        $ejecutar = $obj->query($sql);
+
+        include_once "../view/agro/modal_producto.php";
+    }
 }
+
+?>

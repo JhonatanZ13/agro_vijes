@@ -148,22 +148,23 @@
             </div>
 
             <div class="float-right">
-                <a href="<?php echo getUrl("Perfil", "Perfil", "misProductos");?>"><button class="btn btn-green">Editar perfil</button><button class="btn btn-primary ml-3">Mis productos</button></a>
+                <button class="btn btn-green">Editar perfil</button>
+                <a href="<?php echo getUrl("Perfil", "Perfil", "misProductos");?>"><button class="btn btn-primary ml-3">Mis productos</button></a>
             </div>
 
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-md-12">
-            <div class="bg-light">
-                <b>Descripcion</b><br>
-                Aqui va la descripcion
+            <div class="">
+                <p><b>Descripcion:</b><br><br>
+                Aqui va la descripcion</p>
             </div>
         </div>
 
     </div>
     <div class="mt-5">
-        <b>Fotos de mis productos</b><br>
+        <p><b>Fotos de mis productos</b><br></p>
     </div>
     <div class="row mt-3">
         <div class="top-content">
@@ -212,3 +213,5 @@
 
     </div>
 </div>
+
+<?php include_once "../view/partials/footer.php"; ?>
