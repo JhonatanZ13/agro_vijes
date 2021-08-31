@@ -27,6 +27,19 @@
             return $re;
         }
 
+        public function CargaSelectGeneral($campo, $tabla){
+            $sql = "SELECT $campo FROM $tabla";
+
+            $consultar = $this->query($sql);
+            $num = mysqli_num_rows($consultar);
+
+            if ($num > 0) {
+                while ($dato = mysqli_fetch_row($consultar)) {
+                    echo "<option value='" . $dato[0] . "'>$dato[1]  </option>";
+                }
+            }
+        }
+
         public function CargaSelected($campo, $tabla, $condicion){
 
             $sql = "SELECT $campo FROM $tabla";
@@ -50,6 +63,15 @@
             $result=$this->query($sql);
             foreach ($result as $e) {
                 $re = $e[$campo];
+            }
+            return $re;
+        }
+        public function ConsultName2($campo,$tabla){
+    
+            $sql = "SELECT $campo FROM $tabla";
+            $result=$this->query($sql);
+            foreach ($result as $e) {
+                $re = $e['nombres'];
             }
             return $re;
         }

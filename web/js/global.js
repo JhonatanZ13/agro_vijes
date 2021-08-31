@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+
   $(document).on("click", "#modalBoton", function() {
     var pro_id = $(this).attr("data-id");
     var url = "ajax.php?modulo=Agro&controlador=Agro&funcion=getProducto";
@@ -31,6 +33,7 @@ $(document).ready(function () {
     // Y a la fuente de la imagen le ponemos el objectURL
     imagenPrevisualizacion.src = objectURL;
  });
+
  $(document).on("change", "#subirFirma2", function() {
     const seleccionArchivos = document.querySelector("#subirFirma2"), 
         imagenPrevisualizacion = document.querySelector("#prevfirma2");
@@ -126,9 +129,7 @@ $(document).on("change", "#select_dep", function () {
 });
 
 $("#carousel-example").on("slide.bs.carousel", function (e) {
-  /*
-      CC 2.0 License Iatek LLC 2018 - Attribution required
-  */
+  
   var $e = $(e.relatedTarget);
   var idx = $e.index();
   var itemsPerSlide = 5;
@@ -137,7 +138,7 @@ $("#carousel-example").on("slide.bs.carousel", function (e) {
   if (idx >= totalItems - (itemsPerSlide - 1)) {
     var it = itemsPerSlide - (totalItems - idx);
     for (var i = 0; i < it; i++) {
-      // append slides to end
+     
       if (e.direction == "left") {
         $(".carousel-item").eq(i).appendTo(".carousel-inner");
       } else {
@@ -147,9 +148,12 @@ $("#carousel-example").on("slide.bs.carousel", function (e) {
   }
 });
 
-function showImageHereFunc() {
-    var total_file=document.getElementById("uploadImageFile").files.length;
-    for(var i=0;i<total_file;i++) {
-      $('#showImageHere').append("<div class='card col-md-2'><img class='card-img-top' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
-    }
+$('input[name="rol"]').on('change', function(){
+  var id = $(this).val();
+  if(id == 3){
+    $("#ocultarComprador").css("display","none");
+  }else{
+    $("#ocultarComprador").css("display","");
   }
+});
+

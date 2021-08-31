@@ -17,12 +17,15 @@
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="footer-links">
                     <ul>
-                        <li><a href="#main"> <img class="img-fluid" src="assets/icons/i1.png" alt="Icon"> </a> </li>
-                        <li><a href="#main"> <img class="img-fluid" src="assets/icons/i2.png" alt="Icon"> </a> </li>
-                        <li><a href="#main"> <img class="img-fluid" src="assets/icons/i3.png" alt="Icon"> </a> </li>
-                        <li><a href="#main"> <img class="img-fluid" src="assets/icons/i4.png" alt="Icon"> </a> </li>
+                        <li><a href="#main"> <i class="fab fa-whatsapp fa-lg"></i> </a> </li>
+                        <li><a href="#main"> <i class="fab fa-facebook fa-lg"></i> </a> </li>
+                        <li><a href="#main"> <i class="fab fa-instagram fa-lg"></i> </a> </li>
+                        <li><a href="#main"> <i class="fab fa-twitter fa-lg"></i></a> </li>
                     </ul>
                 </div>
+            </div>
+            <div class="col-md-12 mt-3">
+                <a class="text-light">Copyright &copy; 2021 AGROVIJES</a>
             </div>
         </div>
         <!-- Scroll To Top -->

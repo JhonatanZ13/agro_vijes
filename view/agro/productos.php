@@ -65,19 +65,18 @@
                                             </a>
                                         </div>
                                         <div class="card-body bg-light">
-                                            <h4 class="card-title"><?= $eje['pro_titulo'] ?></h4>
+                                            <div class="cat2">
+                                                <h3 class="mt-2 font-weight-bold" style="font-size: 16pt;"><?= $eje['pro_titulo'] ?></h3>
+                                            </div>
                                             <p style="font-size: 14pt; line-height: 20pt;">
-                                                <strong> Vendedor:</strong> <?php echo $obj->Consultname('usu_nombres', 'usuario WHERE usu_id = ' . $eje['pro_vendedor']) ?><br>
-                                                <strong>Ubicacion: </strong><?php echo $obj->Consultname('ciu_nombre', 'ciudad WHERE ciu_id = ' . $eje['pro_ubicacion']) ?><br>
-                                                <strong>Precio: $</strong><?= $eje['precio'] ?> <?php echo $obj->Consultname('nombre_tipo_med', 'tipo_medida WHERE id_tipo_medida  = ' . $eje['medida_peso']) ?> <br>
-                                                <strong>Cantidad disponible: </strong><?= $eje['cantidad_disponible'] ?> <?php echo $obj->Consultname('abr_nombre', 'tipo_medida WHERE id_tipo_medida  = ' . $eje['medida_peso']) ?> <br>
-                                                <strong>Fecha:</strong> <?php
-                                                                        $fecha = new Carbon($eje['pro_fecha']);
-                                                                        echo  $fecha->diffForHumans() ?>
+                                                <strong style="font-weight: bold;">Vendedor:</strong> <?php echo $obj->Consultname2("CONCAT(usu_nombres,' ',usu_apellidos) as nombres", 'usuario WHERE usu_id = ' . $eje['pro_vendedor']) ?><br>
+                                                <strong style="font-weight: bold;">Ubicacion: </strong><?php echo $obj->Consultname('ciu_nombre', 'ciudad WHERE ciu_id = ' . $eje['pro_ubicacion']) ?><br>
+                                                <strong style="font-weight: bold;">Precio: $</strong><?= $eje['precio'] ?> <?php echo $obj->Consultname('nombre_tipo_med', 'tipo_medida WHERE id_tipo_medida  = ' . $eje['medida_peso']) ?> <br>
+                                                <strong style="font-weight: bold;">Cantidad disponible: </strong><?= $eje['cantidad_disponible'] ?> <?php echo $obj->Consultname('abr_nombre', 'tipo_medida WHERE id_tipo_medida  = ' . $eje['medida_peso']) ?> <br>
                                             </p>
                                             <div class="row">
                                                 <div class="col-md-6 mt-2">
-                                                    <a href="https://wa.me/<?= $obj->ConsultTel($eje['usu_id']) ?>?text=Me%20interesa%20tu%20producto%20<?= $eje['pro_titulo'] ?>%20podrias%20darme%20mas%20infromacion,%20Gracias." target="_blank"><button class="btn btn-green w-100">
+                                                    <a href="https://wa.me/<?= $obj->ConsultTel($eje['usu_id']) ?>?" target="_blank"><button class="btn btn-green w-100">
                                                             <h3>Contactar <i class="fab fa-whatsapp"></i></h3>
                                                         </button></a>
                                                 </div>
@@ -87,7 +86,11 @@
                                                     </button>
                                                 </div>
                                             </div>
-
+                                        </div>
+                                        <div class="card-footer text-muted">
+                                            <?php
+                                            $fecha = new Carbon($eje['pro_fecha']);
+                                            echo  $fecha->diffForHumans() ?>
                                         </div>
                                     </div>
                                 </div>
@@ -101,34 +104,36 @@
                     </div>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : '' ?>">
-                                <a class="page-link" href="<?php echo getUrl("Agro","Agro","getProductos",array('pagina' => $_GET['pagina']-1));?>">Anterior</a>
+                            <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+                                <a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $_GET['pagina'] - 1)); ?>">Anterior</a>
                             </li>
                             <?php for ($i = 0; $i < $paginas; $i++) {
 
                             ?>
-                                <li class="page-item <?php echo $_GET['pagina'] == $i+1 ? 'active' : '' ?>"><a class="page-link" href="<?php echo getUrl("Agro","Agro","getProductos",array('pagina' => $i+1));?>"><?=$i+1?></a></li>
+                                <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>"><a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $i + 1)); ?>"><?= $i + 1 ?></a></li>
                             <?php
                             }
                             ?>
-                            <li class="page-item <?php echo $_GET['pagina']>=$paginas ? 'disabled' : '' ?>">
-                                <a class="page-link" href="<?php echo getUrl("Agro","Agro","getProductos",array('pagina' => $_GET['pagina']+1));?>">Siguiente</a>
+                            <li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
+                                <a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $_GET['pagina'] + 1)); ?>">Siguiente</a>
                             </li>
                         </ul>
                     </nav>
+
+                    <?php
+                    if (isset($_SESSION['rol'])) {
+                        if ($_SESSION['rol'] == 1 || $_SESSION['rol'] == 2 || $_SESSION['rol'] == 4) {
+                    ?>
+                            <div class="col-md-2" style="z-index: 1000;">
+                                <a href="<?php echo getUrl("Agro", "Agro", "publicarProducto"); ?>" class="btn-flotante">Publicar producto</a>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
-            <?php
-            if (isset($_SESSION['rol'])) {
-                if ($_SESSION['rol'] == 1) {
-            ?>
-                    <div class="col-md-2">
-                        <a href="<?php echo getUrl("Agro", "Agro", "publicarProducto"); ?>" class="btn-flotante">Publicar producto</a>
-                    </div>
-            <?php
-                }
-            }
-            ?>
+
         </div>
     </div>
 </div>

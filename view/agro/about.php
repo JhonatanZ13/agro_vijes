@@ -7,16 +7,16 @@
     <div class="yd-cat">
         <div id="features" class="ft-flex">
             <div class="container">
-                <div class="ft-inner align-center">
+                <div class="ft-inner bg-light align-center">
                     <div class="ft-text">
                         <div class="ft-content text-center">
                             <h2>¿Quienes somos?</h2>
-                            <p> Somos una empresa que busca contibuir a la economia y desarrollo local del sector agrícola del Municipio de Vijes, desarrollando una pagina web para que sus provedores puedan llegar a sus clientes reduciendo intermediaciones y así mejorar la calidad de vida para estas personas.</p>
+                            <p> Somos una empresa que busca contribuir a la economia y desarrollo local del sector agrícola del Municipio de Vijes, desarrollando una pagina web para que sus provedores puedan llegar a sus clientes reduciendo intermediaciones y así mejorar la calidad de vida para estas personas.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="ft-inner align-center">
+                <div class="ft-inner bg-light align-center">
                     <div class="ft-image wow">
                         <div>
                             <div class="cat2 text-center">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
 
-                <div class="ft-inner ft-inverted align-center">
+                <div class="ft-inner bg-light ft-inverted align-center">
                     <div class="ft-image f-image-inverted">
                         <img class="img-fluid" src="./img/vision.png" alt="Feature">
                     </div>

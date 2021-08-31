@@ -1,4 +1,8 @@
-<?php foreach ($ejecutar as $eje) { ?>
+<?php
+
+use Carbon\Carbon;
+
+foreach ($ejecutar as $eje) { ?>
     <div class="modal-body">
         <!-- Cuerpo de la modal -->
         <div class="cointainer-fluid">
@@ -28,18 +32,48 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <h3 class="mt-2"><?= $eje['pro_titulo'] ?></h3>
-            <hr>
+            <div class="cat2">
+                <h3 class="mt-2 font-weight-bold" style="font-size: 20pt;"><?= $eje['pro_titulo'] ?></h3>
+                <h4 class="mt-3 ml-1"><?php echo $obj->Consultname('nombre_producto', 'productos WHERE id_producto   = ' . $eje['id_producto']) ?></h4>
+            </div>
             <p id="contenido_modal_info" style="font-size: 14pt; line-height: 20pt;">
-                <strong>Vendedor:</strong> <?php echo $obj->Consultname('usu_nombres', 'usuario WHERE usu_id = ' . $eje['pro_vendedor']) ?><br>
-                <strong>Ubicacion: </strong><?php echo $obj->Consultname('ciu_nombre', 'ciudad WHERE ciu_id = ' . $eje['pro_ubicacion']) ?><br>
-                <strong>Precio: $</strong><?=$eje['precio']?> <?php echo $obj->Consultname('nombre_tipo_med', 'tipo_medida WHERE id_tipo_medida  = '.$eje['medida_peso'])?><br>
-                <strong>Cantidad disponible: </strong><?=$eje['cantidad_disponible']?> <?php echo $obj->Consultname('abr_nombre', 'tipo_medida WHERE id_tipo_medida  = '.$eje['medida_peso'])?><br>
-                <strong>Cantidad minima de venta: </strong><?=$eje['cant_min_venta']?> <?php echo $obj->Consultname('abr_nombre', 'tipo_medida WHERE id_tipo_medida  = '.$eje['medida_peso'])?><br>
-                <strong>Contacto: </strong><a href="tel:+<?php echo $obj->Consultname('usu_telefono', 'usuario WHERE usu_id  = '.$eje['usu_id'])?>">+<?php echo $obj->Consultname('usu_telefono', 'usuario WHERE usu_id  = '.$eje['usu_id'])?></a><br>
-                <strong>Fecha de publicacion:</strong> Hace 1 dia <br>
-                <Strong>Descripcion:</Strong>
-                <textarea placeholder="Descripcion" class="form-control mt-2" disabled><?=$eje['pro_desc']?></textarea>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Vendedor:</td>
+                    <td><?php echo $obj->Consultname2("CONCAT(usu_nombres,' ',usu_apellidos) as nombres", 'usuario WHERE usu_id = ' . $eje['pro_vendedor']); ?></td>
+                </tr>
+                <tr>
+                    <td>Ubicacion:</td>
+                    <td><?php echo $obj->Consultname('ciu_nombre', 'ciudad WHERE ciu_id = ' . $eje['pro_ubicacion']) ?></td>
+                </tr>
+                <tr>
+                    <td>Precio: </td>
+                    <td>$<?= $eje['precio'] ?> <?php echo $obj->Consultname('abr_nombre', 'tipo_medida WHERE id_tipo_medida  = ' . $eje['medida_peso']) ?></td>
+                </tr>
+                <tr>
+                    <td>Cantidad disponible:</td>
+                    <td><?= $eje['cantidad_disponible'] ?> <?php echo $obj->Consultname('abr_nombre', 'tipo_medida WHERE id_tipo_medida  = ' . $eje['medida_peso']) ?></td>
+                </tr>
+                <tr>
+                    <td>Cantidad minima de venta:</td>
+                    <td><?= $eje['cant_min_venta'] ?> <?php echo $obj->Consultname('abr_nombre', 'tipo_medida WHERE id_tipo_medida  = ' . $eje['medida_peso']) ?></td>
+                </tr>
+                <tr>
+                    <td>Contacto:</td>
+                    <td><a href="tel:<?php echo $obj->Consultname('usu_telefono', 'usuario WHERE usu_id  = ' . $eje['usu_id']) ?>"><?php echo $obj->Consultname('usu_telefono', 'usuario WHERE usu_id  = ' . $eje['usu_id']) ?></a></td>
+                </tr>
+                <tr>
+                    <td>Fecha de publicacion:</td>
+                    <td><?php
+                        $fecha = new Carbon($eje['pro_fecha']);
+                        echo  $fecha->diffForHumans() ?></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Descripcion:
+                        <?= $eje['pro_desc'] ?>
+                    </td>
+                </tr>
+            </table>
             </p>
             <div class="row text-center mt-2">
                 <div class="col-md-6 mt-2">

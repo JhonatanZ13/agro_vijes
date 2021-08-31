@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-08-2021 a las 15:47:18
+-- Tiempo de generación: 31-08-2021 a las 02:27:27
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 7.4.21
 
@@ -1200,12 +1200,20 @@ CREATE TABLE `perfil` (
   `perfil_id` int(10) NOT NULL,
   `usu_id` int(10) NOT NULL,
   `perfil_foto` varchar(300) NOT NULL,
-  `perfil_empresa` varchar(120) NOT NULL,
-  `tipo_pro_id` int(10) NOT NULL,
-  `dep_id` int(10) NOT NULL,
-  `ciu_id` int(10) NOT NULL,
-  `perfil_desc` varchar(30) NOT NULL
+  `perfil_empresa` varchar(120) DEFAULT NULL,
+  `tipo_pro_id` int(10) DEFAULT NULL,
+  `dep_id` int(10) DEFAULT NULL,
+  `ciu_id` int(10) DEFAULT NULL,
+  `perfil_desc` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `perfil`
+--
+
+INSERT INTO `perfil` (`perfil_id`, `usu_id`, `perfil_foto`, `perfil_empresa`, `tipo_pro_id`, `dep_id`, `ciu_id`, `perfil_desc`) VALUES
+(1, 2, '../web/archivos/fotos_perfil/nave.png', 'ADSi', 2, 76, 1055, 'dads'),
+(2, 1, '../web/archivos/fotos_perfil/nave.png', 'Mi empresa', 3, 76, 1055, 'Nose');
 
 -- --------------------------------------------------------
 
@@ -1252,6 +1260,7 @@ INSERT INTO `productos` (`id_producto`, `nombre_producto`, `tipo_producto`) VALU
 
 CREATE TABLE `productos_publicados` (
   `pro_id` int(10) NOT NULL,
+  `id_producto` int(10) NOT NULL,
   `pro_titulo` varchar(120) NOT NULL,
   `pro_desc` varchar(300) NOT NULL,
   `pro_vendedor` int(10) NOT NULL,
@@ -1271,11 +1280,12 @@ CREATE TABLE `productos_publicados` (
 -- Volcado de datos para la tabla `productos_publicados`
 --
 
-INSERT INTO `productos_publicados` (`pro_id`, `pro_titulo`, `pro_desc`, `pro_vendedor`, `pro_ubicacion`, `pro_fecha`, `precio`, `cantidad_disponible`, `cant_min_venta`, `medida_peso`, `foto1`, `foto2`, `foto3`, `usu_id`) VALUES
-(1, 'Tomates', 'dsfsdf', 1, 1055, '2021-08-12 15:11:15', '2000', '120', '5', 1, '../web/archivos/imagenes_productos/tomates.jpg', '../web/archivos/imagenes_productos/cebolla.jpg', '../web/archivos/imagenes_productos/repollo.jpg', 1),
-(2, 'Cebollas', 'dsfsf', 1, 1055, '2021-08-12 15:30:30', '2500', '200', '5', 1, '../web/archivos/imagenes_productos/cebolla.jpg', '../web/archivos/imagenes_productos/repollo.jpg', '../web/archivos/imagenes_productos/tomates.jpg', 1),
-(3, 'Repollo', 'sfdsf', 1, 1055, '2021-08-12 15:35:18', '3000', '20', '1', 4, '../web/archivos/imagenes_productos/repollo.jpg', '../web/archivos/imagenes_productos/tomates.jpg', '../web/archivos/imagenes_productos/cebolla.jpg', 1),
-(6, 'Zanahoria', 'fdsf', 1, 1055, '2021-08-13 14:37:33', '1500', '300', '5', 1, '../web/img/no_image.jpg', '../web/img/noimage2.png', '../web/img/noimage2.png', 1);
+INSERT INTO `productos_publicados` (`pro_id`, `id_producto`, `pro_titulo`, `pro_desc`, `pro_vendedor`, `pro_ubicacion`, `pro_fecha`, `precio`, `cantidad_disponible`, `cant_min_venta`, `medida_peso`, `foto1`, `foto2`, `foto3`, `usu_id`) VALUES
+(1, 1, 'Tomates', 'dsfsdf', 1, 1055, '2021-08-12 15:11:15', '2000', '120', '5', 1, '../web/archivos/imagenes_productos/tomates.jpg', '../web/archivos/imagenes_productos/cebolla.jpg', '../web/archivos/imagenes_productos/repollo.jpg', 1),
+(2, 5, 'Cebollas', 'dsfsf', 1, 1055, '2021-08-12 15:30:30', '2500', '200', '5', 1, '../web/archivos/imagenes_productos/cebolla.jpg', '../web/archivos/imagenes_productos/repollo.jpg', '../web/archivos/imagenes_productos/tomates.jpg', 1),
+(3, 1, 'Tomates cherry', 'Tomates cherry', 1, 1055, '2021-08-26 19:25:45', '3500', '80', '10', 1, '../web/img/no_image.jpg', '../web/img/no_image.jpg', '../web/img/no_image.jpg', 1),
+(4, 2, 'Cilantro', 'Cilantro', 1, 1055, '2021-08-26 20:00:07', '5000', '50', '10', 1, '../web/img/no_image.jpg', '../web/img/no_image.jpg', '../web/img/no_image.jpg', 1),
+(5, 2, 'Habichuelas', 'Habichuelas', 2, 1055, '2021-08-30 12:59:38', '1600', '204', '11', 2, '../web/archivos/imagenes_productos/habichuela.jpg', '../web/archivos/imagenes_productos/habichuela.jpg', '../web/img/no_image.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -1357,6 +1367,27 @@ INSERT INTO `tipo_producto` (`tipo_pro_id`, `tipo_pro_nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tipo_rol`
+--
+
+CREATE TABLE `tipo_rol` (
+  `id_tipo_rol` int(2) NOT NULL,
+  `nombre_rol` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_rol`
+--
+
+INSERT INTO `tipo_rol` (`id_tipo_rol`, `nombre_rol`) VALUES
+(1, 'Administrador'),
+(2, 'Agricultor'),
+(3, 'Comprador'),
+(4, 'Agricultor / Comprador');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -1376,7 +1407,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`usu_id`, `usu_nombres`, `usu_apellidos`, `usu_correo`, `usu_pass`, `usu_telefono`, `usu_rol`, `usu_estado`) VALUES
-(1, 'Jhonatan', 'Zambrano', 'zambranojhonatan20@gmail.com', '111000', '573168445287', 1, 1);
+(1, 'Jhonatan', 'Zambrano', 'zambranojhonatan20@gmail.com', '111000', '+573168445287', 1, 1),
+(2, 'Javier', 'Zambrano', 'zambranojhonatan21@gmail.com', '1234', '+573168445287', 2, 1);
 
 --
 -- Índices para tablas volcadas

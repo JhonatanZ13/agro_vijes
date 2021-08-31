@@ -1,216 +1,51 @@
-<style>
-    @media (min-width: 768px) and (max-width: 991px) {
-    /* Show 4th slide on md if col-md-4*/
-    .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: absolute;
-        top: 0;
-        right: -33.3333%;  /*change this with javascript in the future*/
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    }
-}
-@media (min-width: 576px) and (max-width: 768px) {
-    /* Show 3rd slide on sm if col-sm-6*/
-    .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
-        position: absolute;
-        top: 0;
-        right: -50%;  /*change this with javascript in the future*/
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    }
-}
-@media (min-width: 576px) {
-    .carousel-item {
-        margin-right: 0;
-    }
-    /* show 2 items */
-    .carousel-inner .active + .carousel-item {
-        display: block;
-    }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
-        transition: none;
-    }
-    .carousel-inner .carousel-item-next {
-        position: relative;
-        transform: translate3d(0, 0, 0);
-    }
-    /* left or forward direction */
-    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-    .carousel-item-next.carousel-item-left + .carousel-item,
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible;
-    }
-    /* farthest right hidden item must be also positioned for animations */
-    .carousel-inner .carousel-item-prev.carousel-item-right {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    }
-    /* right or prev direction */
-    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-    .carousel-item-prev.carousel-item-right + .carousel-item,
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(100%, 0, 0);
-        visibility: visible;
-        display: block;
-        visibility: visible;
-    }
-}
-/* MD */
-@media (min-width: 768px) {
-    /* show 3rd of 3 item slide */
-    .carousel-inner .active + .carousel-item + .carousel-item {
-        display: block;
-    }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-        transition: none;
-    }
-    .carousel-inner .carousel-item-next {
-        position: relative;
-        transform: translate3d(0, 0, 0);
-    }
-    /* left or forward direction */
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible;
-    }
-    /* right or prev direction */
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(100%, 0, 0);
-        visibility: visible;
-        display: block;
-        visibility: visible;
-    }
-}
-/* LG */
-@media (min-width: 991px) {
-    /* show 4th item */
-    .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
-        display: block;
-    }
-    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
-        transition: none;
-    }
-    /* Show 5th slide on lg if col-lg-3 */
-    .carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: absolute;
-        top: 0;
-        right: -25%;  /*change this with javascript in the future*/
-        z-index: -1;
-        display: block;
-        visibility: visible;
-    }
-    /* left or forward direction */
-    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible;
-    }
-    /* right or prev direction //t - previous slide direction last item animation fix */
-    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-        position: relative;
-        transform: translate3d(100%, 0, 0);
-        visibility: visible;
-        display: block;
-        visibility: visible;
-    }
-}
-</style>
-
-<div class="container shadow mt-2">
-    <div class="navbar row bg-light shadow">
-        <div class="col-md-3 text-center">
-            <img src="img/profile.jpg" width="200px">
-        </div>
-        <div class="col-md-9">
-            <div>
-                <h3 class="display-4">Jhonatan Zambrano</h3>
-            </div>
-            <div style="font-size:25px;">
-                <i class="fas fa-tractor"></i> <b>Agricultor</b>
-            </div>
-            <div style="font-size:25px;">
-                <i class="fas fa-map-marker-alt"></i> Vijes, Valle del cauca
-            </div>
-            <div style="font-size:25px;">
-                <i class="fab fa-whatsapp-square"></i></i> 3168445287
-            </div>
-
-            <div class="float-right">
-                <button class="btn btn-green">Editar perfil</button>
-                <a href="<?php echo getUrl("Perfil", "Perfil", "misProductos");?>"><button class="btn btn-primary ml-3">Mis productos</button></a>
-            </div>
-
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-md-12">
-            <div class="">
-                <p><b>Descripcion:</b><br><br>
-                Aqui va la descripcion</p>
-            </div>
-        </div>
-
-    </div>
-    <div class="mt-5">
-        <p><b>Fotos de mis productos</b><br></p>
-    </div>
-    <div class="row mt-3">
-        <div class="top-content">
-            <div class="container-fluid">
-                <div id="carousel-example" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                            <img src="img/repollo.jpg" class="img-fluid mx-auto d-block" alt="img1">
+<div id="main" class="main">
+    <div class="yd-cat">
+        <div class="mt-4"></div>
+        <div class="">
+            <div class="container">
+                <?php foreach ($eje as $eje) { ?>
+                    <div class="hero-content wow fadeIn">
+                        <div class="flex-split">
+                            <div class="mt-2 row p-2">
+                                <div class="col-md-4">
+                                    <div class="col-md-12 m-auto bg-light text-center" 
+                                        style="border: 1px solid gray; border-radius: 50%; width: 300px; height: 300px; overflow: hidden; background-color: #fff; display: flex;align-items: center;justify-content: center;">
+                                        <div style="text-align: center;">
+                                        <img src="<?=$eje['perfil_foto']?>" class="img-fluid" width="300px">
+                                        </div>
+                                        <!-- ./Archivos/fotos_perfil/no-avatar.png -->
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="cat2 text-center">
+                                        <br>
+                                        <h2><?= $obj->Consultname2("CONCAT(usu_nombres,' ',usu_apellidos) as nombres", 'usuario WHERE usu_id = ' . $eje['usu_id'])?></h2>
+                                        <br>
+                                        <h4><i class="fas fa-tractor"></i> <b>Agricultor</b></h4>
+                                        <br>
+                                        <h4><i class="fas fa-map-marker-alt"></i> <?php echo $obj->Consultname('ciu_nombre', 'ciudad WHERE ciu_id = ' . $eje['ciu_id']) ?>, <?php echo $obj->Consultname('dep_nombre', 'departamento WHERE dep_id = ' . $eje['dep_id']) ?></h4>
+                                        <br>
+                                        <h4><i class="fab fa-whatsapp-square"></i></i> <?=$tel?> </h4>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="btn btn-green">Editar perfil</button>
+                                        <a href="<?php echo getUrl("Perfil", "Perfil", "misProductos"); ?>"><button class="btn btn-primary ml-3">Mis productos</button></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="img/repollo.jpg" class="img-fluid mx-auto d-block" alt="img2">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="img/repollo.jpg" class="img-fluid mx-auto d-block" alt="img3">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="img/repollo.jpg" class="img-fluid mx-auto d-block" alt="img4">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="img/repollo.jpg" class="img-fluid mx-auto d-block" alt="img5">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="img/repollo.jpg" class="img-fluid mx-auto d-block" alt="img6">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="img/repollo.jpg" class="img-fluid mx-auto d-block" alt="img7">
-                        </div>
-                        <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                            <img src="img/repollo.jpg" class="img-fluid mx-auto d-block" alt="img8">
-                        </div>
+                        <hr>
+                        <p class="p-2 font-weight-bold">
+                            Descripcion:
+                            <br>
+                            
+                        </p>
+                        <textarea class="form-control" style="resize: none;" disabled><?=$eje['perfil_desc']?></textarea>
+                        <div id="espacios_responsive"></div>
                     </div>
-                    <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon text-green" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+                <?php } ?>
             </div>
         </div>
-    </div>
-
-    <div style="height: 100px;">
-
     </div>
 </div>
 

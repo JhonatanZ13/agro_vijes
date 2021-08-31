@@ -510,7 +510,7 @@ body {
 	}
 
 	.cat2 h4 {
-		font-size: 13px;
+		font-size: 16px;
 		font-weight: 600;
 		color: #21bf73;
 		line-height: 1.2;
@@ -1623,6 +1623,10 @@ body {
 		margin-right: 15px;
 	  font-size: 0.85rem;
 	  font-weight: 400;
+	}
+
+	#espacios_responsive{
+		height: 250px;
 	}
 
 	.btn-nav {
