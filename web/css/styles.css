@@ -89,6 +89,7 @@ input::placeholder {
 	}
 }
 
+
 .hover_cards:hover{
     background-color: rgba(0, 165, 27, 0.685);
     font-weight: bold;

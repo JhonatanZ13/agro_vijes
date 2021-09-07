@@ -17,7 +17,16 @@
                     <?php
                         }
                     }
+                ?>
+                <?php
+                    if (isset($_SESSION['rol'])) {
+                        if ($_SESSION['rol'] == 1) {
                     ?>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger text-white" href="<?php echo getUrl("Admin", "Admin", "getPanelAdmin"); ?>">Panel de control</a></li>
+                    <?php
+                        }
+                    }
+                ?>
                
                 <?php
                 if (isset($_SESSION['auth'])) {

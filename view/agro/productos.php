@@ -3,20 +3,230 @@
         <div class="row mt-5">
             <div class="col-md-2 mt-3">
                 <div class="container">
-                    <div class="cat2">
-                        <h4><i class="fas fa-filter"></i> Filtrar productos</h4>
-                    </div>
-                    <form>
-                        <input class="form-control mr-2" type="search" placeholder="Buscar vendedor" aria-label="Search">
-                    </form>
-                    <select name="" id="" class="form-control mt-2">
-                        <option value="">Tipo de producto</option>
+                    <div class="">
+                        <div class="">
+                            <div class="container">
+                                <p>
+                                <div class="cat2">
+                                    <a data-toggle="collapse" href="#hortalizas" role="button" aria-expanded="false" aria-controls="hortalizas">
+                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1)) ?>" class="text-dark"><h4>Todos los productos</h4></a>
+                                    </a>
+                                </div>
+                                <hr>
+                                </p>
+                                <p>
+                                <div class="cat2">
+                                    <a data-toggle="collapse" href="#hortalizas" role="button" aria-expanded="false" aria-controls="hortalizas">
+                                        <h4>Hortalizas</h4>
+                                    </a>
+                                </div>
+                                </p>
+                                <div class="collapse" id="hortalizas">
+                                    <div class="card card-body">
+                                        <div class="mt-2">
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 1)) ?>" class="text-dark">
+                                                        <h3>Tomate</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 2)) ?>" class="text-dark">
+                                                        <h3>Cilantro</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 3)) ?>" class="text-dark">
+                                                        <h3>Pimenton</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 4)) ?>" class="text-dark">
+                                                        <h3>Habichuela</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 5)) ?>" class="text-dark">
+                                                        <h3>Cebolla larga</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 6)) ?>" class="text-dark">
+                                                        <h3>Pepino</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 7)) ?>" class="text-dark hover_cards">
+                                                        <h3>Aji</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 8)) ?>" class="text-dark">
+                                                        <h3>Zapallo</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    </select>
-                    <select name="" id="" class="form-control mt-2">
-                        <option value="">Ubicacion</option>
-                    </select>
-                    <button class="btn btn-outline-success mt-2" type="submit">Filtrar</button>
+                                <hr>
+                                <p>
+                                <div class="cat2">
+                                    <a data-toggle="collapse" href="#frutas" role="button" aria-expanded="false" aria-controls="frutas">
+                                        <h4>Frutas</h4>
+                                    </a>
+                                </div>
+                                </p>
+                                <div class="collapse" id="frutas">
+                                    <div class="card card-body">
+                                        <div class="mt-2">
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 9)) ?>" class="text-dark">
+                                                        <h3>Aguacate</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 10)) ?>" class="text-dark">
+                                                        <h3>Banano</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 11)) ?>" class="text-dark">
+                                                        <h3>Lulo</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 12)) ?>" class="text-dark">
+                                                        <h3>Mango</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 13)) ?>" class="text-dark">
+                                                        <h3>Maracuya</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 14)) ?>" class="text-dark">
+                                                        <h3>Piña</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <p>
+                                <div class="cat2">
+                                    <a data-toggle="collapse" href="#tuberculos" role="button" aria-expanded="false" aria-controls="tuberculos">
+                                        <h4>Tubérculos</h4>
+                                    </a>
+                                </div>
+                                </p>
+                                <div class="collapse" id="tuberculos">
+                                    <div class="card card-body">
+                                        <div class="mt-2">
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 15)) ?>" class="text-dark">
+                                                        <h3>Yuca</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 16)) ?>" class="text-dark">
+                                                        <h3>Arracacha</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <p>
+                                <div class="cat2">
+                                    <a data-toggle="collapse" href="#legum_cere" role="button" aria-expanded="false" aria-controls="legum_cere">
+                                        <h4>Legumbres y cereales</h4>
+                                    </a>
+                                </div>
+                                </p>
+                                <div class="collapse" id="legum_cere">
+                                    <div class="card card-body">
+                                        <div class="mt-2">
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 17)) ?>" class="text-dark">
+                                                        <h3>Frijol</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 18)) ?>" class="text-dark">
+                                                        <h3>Maiz</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <p>
+                                <div class="cat2">
+                                    <a data-toggle="collapse" href="#cafes" role="button" aria-expanded="false" aria-controls="cafes">
+                                        <h4>Cafés</h4>
+                                    </a>
+                                </div>
+                                </p>
+                                <div class="collapse" id="cafes">
+                                    <div class="card card-body">
+                                        <div class="mt-2">
+                                            <div class="mb-2">
+                                                <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
+                                                    <a href="<?= getUrl("Agro", "Agro", "getProductos", array('pagina' => 1, 'pro_id' => 19)) ?>" class="text-dark">
+                                                        <h3>Cafes especiales (organico)</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-8">
@@ -27,7 +237,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="row row-cols-1 row-cols-md-3">
+                    <div class="row">
                         <?php
 
                         use Carbon\Carbon;
@@ -98,25 +308,41 @@
                                 $cont++;
                             }
                         } else {
-                            echo "No se encontro ningun producto productos";
+                            echo "<div style='height: 60vh;' class='text-center w-100'>No se encontro ningun producto productos</div>";
                         }
                         ?>
                     </div>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
-                                <a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $_GET['pagina'] - 1)); ?>">Anterior</a>
-                            </li>
-                            <?php for ($i = 0; $i < $paginas; $i++) {
+                            <?php if (!isset($_GET['pro_id'])) { ?>
+                                <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+                                    <a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $_GET['pagina'] - 1)); ?>">Anterior</a>
+                                </li>
+                                <?php for ($i = 0; $i < $paginas; $i++) {
 
-                            ?>
-                                <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>"><a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $i + 1)); ?>"><?= $i + 1 ?></a></li>
-                            <?php
-                            }
-                            ?>
-                            <li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
-                                <a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $_GET['pagina'] + 1)); ?>">Siguiente</a>
-                            </li>
+                                ?>
+                                    <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>"><a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $i + 1)); ?>"><?= $i + 1 ?></a></li>
+                                <?php
+                                }
+                                ?>
+                                <li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
+                                    <a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $_GET['pagina'] + 1)); ?>">Siguiente</a>
+                                </li>
+                            <?php } else { ?>
+                                <li class="page-item <?php echo $_GET['pagina'] <= 1 ? 'disabled' : '' ?>">
+                                    <a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $_GET['pagina'] - 1, 'pro_id' => $_GET['pro_id'])); ?>">Anterior</a>
+                                </li>
+                                <?php for ($i = 0; $i < $paginas; $i++) {
+
+                                ?>
+                                    <li class="page-item <?php echo $_GET['pagina'] == $i + 1 ? 'active' : '' ?>"><a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $i + 1, 'pro_id' => $_GET['pro_id'])); ?>"><?= $i + 1 ?></a></li>
+                                <?php
+                                }
+                                ?>
+                                <li class="page-item <?php echo $_GET['pagina'] >= $paginas ? 'disabled' : '' ?>">
+                                    <a class="page-link" href="<?php echo getUrl("Agro", "Agro", "getProductos", array('pagina' => $_GET['pagina'] + 1, 'pro_id' => $_GET['pro_id'])); ?>">Siguiente</a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </nav>
 

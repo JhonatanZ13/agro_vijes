@@ -18,8 +18,15 @@ class AgroController
     public function getProductos()
     {
         $obj = new AgroModel();
-        $sql = "SELECT pro_id FROM productos_publicados";
-        $ejecutar = $obj->query($sql);
+        if(isset($_GET['pro_id'])){
+            $pro_id = $_GET['pro_id'];
+            $sql = "SELECT pro_id FROM productos_publicados WHERE id_producto = $pro_id";
+            $ejecutar = $obj->query($sql);
+        }else{
+            $sql = "SELECT pro_id FROM productos_publicados";
+            $ejecutar = $obj->query($sql);
+        }
+        
 
         $productos_x_pagina = 6;
         $paginas = mysqli_num_rows($ejecutar) / $productos_x_pagina;
@@ -27,6 +34,12 @@ class AgroController
 
         $indice = ($_GET['pagina'] - 1) * $productos_x_pagina;
         $sql = "SELECT * FROM productos_publicados ORDER BY pro_fecha DESC LIMIT $indice, $productos_x_pagina";
+        
+        if(isset($_GET['pro_id'])){
+            $pro_id = $_GET['pro_id'];
+            $sql = "SELECT * FROM productos_publicados WHERE id_producto = $pro_id ORDER BY pro_fecha DESC LIMIT $indice, $productos_x_pagina";
+        }
+
         $eje = $obj->query($sql);
         
         include_once '../view/agro/productos.php';

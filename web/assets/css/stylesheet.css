@@ -830,7 +830,7 @@ body {
 	--------------------------------------*/
 
 		.yd-stats {
-			padding: 100px 0;
+			padding: 60px 0;
 			background: #FFFFFF;
 		}
 
@@ -914,7 +914,7 @@ body {
 }
 
 	.yd_rev_inner .rev-intro {
-		text-align: left;
+		text-align: center;
 		margin-top: 30px;
 		padding: 50px;
 	}
@@ -936,13 +936,13 @@ body {
 	}
 
 	.yd_rev_inner .rev-list {
-		text-align: left;
+		text-align: center;
 		padding: 50px;
 		background: #f0f9f6;
 	}
 
 	.rev-list .rev-block {
-		text-align: left;
+		text-align: center;
 	}
 
 	.rev-block img {

@@ -5,20 +5,20 @@
             <div class="cat2">
                 <h2>Publicar nuevo producto</h2>
             </div>
-            <form action="<?php echo getUrl("Agro", "Agro", "insertProducto"); ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?php echo getUrl("Agro", "Agro", "insertProducto"); ?>" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                 <div class="form-group row">
                     <div class="col-md-6 mt-3">
-                        <label for="">Seleccione el producto</label>
-                        <select name="id_producto" id="select_ciu" class="form-control mt-2">
-                            <option value="0">Selecione</option>
+                        <label for="">Seleccione el producto (*)</label>
+                        <select name="id_producto" id="select_ciu" class="form-control mt-2" required>
+                            <option value="">Selecione</option>
                             <?php
                             echo $obj->CargaSelectGeneral("*", "productos");
                             ?>
                         </select>
                     </div>
                     <div class="col-md-6 mt-3">
-                        <label for="exampleFormControlInput1">Titulo de la publicacion</label>
-                        <input type="text" class="form-control mt-2" name="pro_titulo">
+                        <label for="exampleFormControlInput1">Titulo de la publicacion (*)</label>
+                        <input type="text" class="form-control mt-2" name="pro_titulo" required>
                         <small class="form-text text-muted mt-2">
                             Tu titulo no debe exceder los 120 caracteres.
                         </small>
@@ -27,20 +27,20 @@
                 <div class="form-group row">
                     <div class="col-md-6 mt-3">
                         <label for="exampleFormControlInput1">Cantidad disponible (kg)</label>
-                        <input type="number" class="form-control mt-2" name="cantidad_disponible">
+                        <input type="number" class="form-control mt-2" name="cantidad_disponible" required>
                     </div>
                     <div class="col-md-6 mt-3">
                         <label for="exampleFormControlInput1">Cantidad minima de venta (kg)</label>
-                        <input type="number" class="form-control mt-2" name="cant_min_venta">
+                        <input type="number" class="form-control mt-2" name="cant_min_venta" required>
                     </div>
                     <div class="col-md-6 mt-3">
                         <label for="exampleFormControlInput1">Precio</label>
-                        <input type="number" class="form-control mt-2" name="precio">
+                        <input type="number" class="form-control mt-2" name="precio" required>
                     </div>
                     <div class="col-md-6 mt-3">
                         <label for="exampleFormControlInput1">Tipo medida</label>
-                        <select name="medida_peso" id="select_ciu" class="form-control mt-2">
-                            <option value="0">Selecione</option>
+                        <select name="medida_peso" id="select_ciu" class="form-control mt-2" required>
+                            <option value="">Selecione</option>
                             <?php
                             echo $obj->CargaSelectGeneral("*", "tipo_medida");
                             ?>
@@ -49,8 +49,8 @@
                 </div>
                 <div class="form-group">
                     <label for="">Ubicacion</label>
-                    <select name="pro_ubicacion" id="select_ciu" class="form-control mt-2">
-                        <option value="0">Selecione</option>
+                    <select name="pro_ubicacion" id="select_ciu" class="form-control mt-2" required>
+                        <option value="">Selecione</option>
                         <?php
                         if ($num2 > 0) {
                             while ($dato = mysqli_fetch_row($consultciu)) {

@@ -55,24 +55,24 @@
 <div id="main" class="main">
     <div class="yd-cat">
         <div class="mt-5">
-            <form action="<?php echo getUrl("Agro", "Agro", "registrarAgricultor") ?>" autocomplete="off" enctype="multipart/form-data" method="POST" id="form">
+            <form action="<?php echo getUrl("Agro", "Agro", "registrarAgricultor") ?>" autocomplete="off" enctype="multipart/form-data" method="POST" id="form" class="needs-validation" novalidate>
                 <div class="container mt-2">
                     <div class="cat2">
                         <h2>Formulario de registro</h2>
                     </div>
-                    <?php if(isset($_SESSION['mensaje'])){ ?>
-                        <div class="alert alert-<?=$_SESSION['tipo']?> alert-dismissible " role="alert" id="alert">
+                    <?php if (isset($_SESSION['mensaje'])) { ?>
+                        <div class="alert alert-<?= $_SESSION['tipo'] ?> alert-dismissible " role="alert" id="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                             </button>
                             <strong>
-                            <?php 
+                                <?php
                                 echo $_SESSION['mensaje'];
                                 unset($_SESSION['mensaje']);
                                 unset($_SESSION['tipo']);
-                            ?>
+                                ?>
                             </strong>
                         </div>
-                    <?php }?>
+                    <?php } ?>
                     <div class="cat2 mt-3">
                         <h4>Elija su rol</h4>
                     </div>
@@ -82,6 +82,7 @@
                             <label for="control_01" class="labelbuttom">
                                 <p style="font-size: 24pt; font-weight: bold;">Agricultor</p>
                             </label>
+
                         </div>
                         <div>
                             <input type="radio" id="control_02" name="rol" value="3" required>
@@ -95,6 +96,7 @@
                                 <p style="font-size: 24pt; font-weight: bold;">Ambos</p>
                             </label>
                         </div>
+
                     </section>
                     <hr>
                     <div class="form-group">
@@ -105,29 +107,41 @@
                             <div class="col-md-6 mt-3">
                                 <label for="exampleInputEmail1">Nombres</label>
                                 <input type="text" class="form-control mt-2" name="usu_nombres" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese sus nombres.
+                                </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="exampleInputEmail1">Apellidos</label>
                                 <input type="text" class="form-control mt-2" name="usu_apellidos" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese sus apellidos.
+                                </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="exampleInputEmail1">Correo electronico</label>
                                 <input type="text" class="form-control mt-2" name="usu_correo" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese su correo electronico
+                                </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="exampleInputEmail1">Telefono</label>
                                 <input type="text" class="form-control mt-2" name="usu_telefono" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese su telefono.
+                                </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-6 mt-3">
                                         <label for="exampleInputEmail1">Contraseña</label>
-                                        <input type="text" class="form-control mt-2" name="usu_pass" required>
+                                        <input type="password" class="form-control mt-2" name="usu_pass" required>
 
                                     </div>
                                     <div class="col-md-6 mt-3">
                                         <label for="">Repetir Contraseña</label>
-                                        <input type="text" class="form-control mt-2" required>
+                                        <input type="password" class="form-control mt-2" required>
                                     </div>
                                 </div>
                                 <small class="form-text text-muted mt-2">
@@ -164,7 +178,7 @@
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">¿Tipo de producto que produces?</label>
-                                    <select name="tipo_pro_id" id="" class="form-control mt-2">
+                                    <select name="tipo_pro_id" id="" class="form-control mt-2" required>
                                         <option value="">Selecione</option>
                                         <?php
                                         if ($num1 > 0) {
@@ -177,8 +191,8 @@
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Departamento</label>
-                                    <select name="dep_id" id="select_dep" class="form-control mt-2" data-url="<?php echo getUrl("Agro", "Agro", "selectCiu", false, "ajax"); ?>">
-                                        <option value="0">Selecione</option>
+                                    <select name="dep_id" id="select_dep" class="form-control mt-2" data-url="<?php echo getUrl("Agro", "Agro", "selectCiu", false, "ajax"); ?>" required>
+                                        <option>Selecione</option>
                                         <?php
                                         if ($num1 > 0) {
                                             while ($dato = mysqli_fetch_row($consultdep)) {
@@ -191,10 +205,13 @@
                                         }
                                         ?>
                                     </select>
+                                    <div class="invalid-feedback">
+                                        Por favor elija un departamento.
+                                    </div>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Municipio</label>
-                                    <select name="ciu_id" id="select_ciu" class="form-control mt-2">
+                                    <select name="ciu_id" id="select_ciu" class="form-control mt-2" required>
                                         <option value="0">Selecione</option>
                                         <?php
                                         if ($num2 > 0) {
@@ -208,6 +225,9 @@
                                         }
                                         ?>
                                     </select>
+                                    <div class="invalid-feedback">
+                                        Por favor elija un municipio.
+                                    </div>
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label for="">Descripcion</label>
@@ -272,6 +292,9 @@
                             </div>
                         </div>
                         <div class="mt-4">
+                            <div class="invalid-feedback" id="ver">
+                                Por favor verifique el formulario de registro.
+                            </div>
                             <a class="text-green" href="<?= getUrl("Agro", "Agro", "getHome") ?>">
                                 <button class="btn btn-danger" type="button">Cancelar</button>
                             </a>
@@ -279,7 +302,7 @@
                         </div>
 
                     </div>
-                    
+
                 </div>
         </div>
         </form>

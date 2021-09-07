@@ -1,5 +1,35 @@
 $(document).ready(function () {
+  /* $('#usuarios').DataTable(); */
+  $('#usuarios').DataTable({
 
+    "order": [0, "desc"],
+
+    responsive: true,
+    language: {
+        "decimal": "",
+        "emptyTable": "No hay datos",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+        "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+        "infoFiltered": "(Filtro de _MAX_ registros Totales)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Numero de filas _MENU_",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "No se encontraron resultados",
+        "paginate": {
+
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Proximo",
+            "previous": "Anterior"
+
+        },
+
+
+    },
+  });
 
   $(document).on("click", "#modalBoton", function() {
     var pro_id = $(this).attr("data-id");
@@ -157,3 +187,22 @@ $('input[name="rol"]').on('change', function(){
   }
 });
 
+
+//Validaciones
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();

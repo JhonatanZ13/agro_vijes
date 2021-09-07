@@ -1,12 +1,12 @@
 <div id="main" class="main">
     <div class="home">
-        <div class="container">
+        <div class="">
             <div class="hero-content wow fadeIn">
                 <div class="flex-split">
                     <div class="container">
                         <div class="flex-inner flex-inverted align-center">
                             <div class="f-image f-image-inverted">
-                                <img class="img-fluid" src="./img/agriculturasubsintencia.jpg" alt="Feature">
+                                <img class="img-fluid" src="./img/fotos/yoamovijes.jpg" alt="Campesinos vijes">
                             </div>
                             <div class="f-text">
                                 <div class="left-content">
@@ -44,42 +44,42 @@
                         <div class="row mt-2">
                             <div class="col-md-3 mb-2">
                                 <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
-                                    <h3>Tomate</h3>
+                                <a href="<?= getUrl("Agro", "Agro", "getProductos",array('pagina' => 1, 'pro_id' => 1)) ?>" class="text-dark"><h3>Tomate</h3></a>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2">
                                 <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
-                                    <h3>Cilantro</h3>
+                                <a href="<?= getUrl("Agro", "Agro", "getProductos",array('pagina' => 1, 'pro_id' => 2)) ?>" class="text-dark"><h3>Cilantro</h3></a>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2">
                                 <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
-                                    <h3>Pimenton</h3>
+                                <a href="<?= getUrl("Agro", "Agro", "getProductos",array('pagina' => 1, 'pro_id' => 3)) ?>" class="text-dark"><h3>Pimenton</h3></a>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2">
                                 <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
-                                    <h3>Habichuela</h3>
+                                <a href="<?= getUrl("Agro", "Agro", "getProductos",array('pagina' => 1, 'pro_id' => 4)) ?>" class="text-dark"><h3>Habichuela</h3></a>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2">
                                 <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
-                                    <h3>Cebolla larga</h3>
+                                <a href="<?= getUrl("Agro", "Agro", "getProductos",array('pagina' => 1, 'pro_id' => 5)) ?>" class="text-dark"><h3>Cebolla larga</h3></a>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2">
                                 <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
-                                    <h3>Pepino</h3>
+                                <a href="<?= getUrl("Agro", "Agro", "getProductos",array('pagina' => 1, 'pro_id' => 6)) ?>" class="text-dark"><h3>Pepino</h3></a>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2">
                                 <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
-                                    <h3>Aji</h3>
+                                <a href="<?= getUrl("Agro", "Agro", "getProductos",array('pagina' => 1, 'pro_id' => 7)) ?>" class="text-dark hover_cards"><h3>Aji</h3></a>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-2">
                                 <div class="p-2 text-center hover_cards" style="border: 1px solid green; border-radius: 5px;">
-                                    <h3>Zapallo</h3>
+                                <a href="<?= getUrl("Agro", "Agro", "getProductos",array('pagina' => 1, 'pro_id' => 8)) ?>" class="text-dark"><h3>Zapallo</h3></a>
                                 </div>
                             </div>
                         </div>
@@ -208,5 +208,48 @@
         </div>
     </div>
 
+    <div class="">
+        <div id="reviews" class="yd_reviews">
+            <div class="container">
+                <div class="cat2">
+                    <h2>Galeria de imagenes</h2>
+                </div>
+                <hr>
+                <div class="yd_rev_inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="rev-list owl-carousel owl-theme text-center">
+                                <div class="rev-block">
+                                    <img class="img-fluid" src="./img/fotos/banner.jpg" alt="imagen vijes">
+                                </div>
+                                <div class="rev-block">
+                                    <img class="img-fluid" src="./img/fotos/vijes.jpg" alt="imagen vijes">
+                                </div>
+                                <div class="rev-block">
+                                    <img class="img-fluid" src="./img/fotos/p-vijes.jpg" alt="imagen vijes">
+                                </div>
+                                <div class="rev-block">
+                                    <img class="img-fluid" src="./img/fotos/iglesia.jpg" alt="imagen vijes">
+                                </div>
+                                <div class="rev-block">
+                                    <img class="img-fluid" src="./img/fotos/campo.jpg" alt="imagen vijes">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cat2 mt-3">
+            <h4>¿Como llegar?</h4>
+        </div>
+        <div class="text-center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7963.020244068249!2d-76.44755442388416!3d3.6981956957533035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e39fe1648902b81%3A0x4f0b0805866d2afe!2sVijes%2C%20Valle%20del%20Cauca!5e0!3m2!1ses-419!2sco!4v1631032412804!5m2!1ses-419!2sco" id="" class="img-fluid col-md-12" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+    <hr>
 </div>
 <?php include_once "../view/partials/footer.php"; ?>
