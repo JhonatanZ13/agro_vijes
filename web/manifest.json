@@ -1,0 +1,35 @@
+{
+    "name": "AGROVIJES Mercado de mi pueblo",
+    "short_name": "AGROVIJES",
+    "description": "Somos una vitrina virtual que busca contibuir a la economia y desarrollo local del sector agrícola del Municipio de Vijes.",
+    "background_color": "#FFFFFF",
+    "theme_color": "#084000",
+    "start_url": "./?umt_source=web_app_manifest",
+    "scope": "./",
+    "lang": "es-CO",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "icons": [
+       {
+           "src": "./img/icons/maskable_icon.png",
+           "sizes": "200x200",
+           "type": "image/png",
+           "purpose": "maskable"
+       },
+       {
+        "src": "./img/icons/icono.png",
+        "sizes": "376x307",
+        "type": "image/png"
+        },
+       {
+        "src": "./img/icons/icon190.png",
+        "sizes": "190x190",
+        "type": "image/png"
+        },
+       {
+            "src": "./img/icons/icon512.png",
+            "sizes": "512x412",
+            "type": "image/png"
+        }
+    ]
+}

@@ -6,12 +6,12 @@
                     <div class="container">
                         <div class="flex-inner flex-inverted align-center">
                             <div class="f-image f-image-inverted">
-                                <img class="img-fluid" src="./img/fotos/yoamovijes.jpg" alt="Campesinos vijes">
+                                <img class="img-fluid" src="./img/fotos/camp.jpg" alt="Campesinos vijes">
                             </div>
                             <div class="f-text">
                                 <div class="left-content">
                                     <h2>¿Que es agrovijes?</h2> <br>
-                                    <h4 style="font-size: 14pt;">Somos una empresa que busca contibuir a la economia y desarrollo local del sector agrícola del Municipio de Vijes, desarrollando una pagina web para que sus provedores puedan llegar a sus clientes reduciendo intermediaciones y así mejorar la calidad de vida para estas personas.</h4>
+                                    <h4 style="font-size: 14pt;">Somos una vitrina virtual que busca contibuir a la economia y desarrollo local del sector agrícola del Municipio de Vijes, desarrollando una pagina web para que sus provedores puedan llegar a sus clientes reduciendo intermediaciones y así mejorar la calidad de vida para estas personas.</h4>
                                     <br>
                                     <p class="condition_txt">Si ya tienes una cuenta ingresa o registrate.</p>
                                     <a class="btn-action nav-link js-scroll-trigger" href="<?= getUrl("Agro", "Agro", "getLogin"); ?>">Iniciar sesion</a>
@@ -234,6 +234,12 @@
                                 </div>
                                 <div class="rev-block">
                                     <img class="img-fluid" src="./img/fotos/campo.jpg" alt="imagen vijes">
+                                </div>
+                                <div class="rev-block">
+                                    <img class="img-fluid" src="./img/fotos/campesinos_vijes.jpg" alt="imagen vijes">
+                                </div>
+                                <div class="rev-block">
+                                    <img class="img-fluid" src="./img/fotos/yoamovijes.jpg" alt="imagen vijes">
                                 </div>
                             </div>
                         </div>
