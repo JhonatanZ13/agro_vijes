@@ -9,7 +9,7 @@
         resolve();
     }else{
        redirect(getUrl("Agro","Agro","getHome"));
-
+       //echo getUrl("Agro","Agro","getHome");
     }
     include_once '../view/partials/modal.php';
     include_once '../view/partials/scripts.php';

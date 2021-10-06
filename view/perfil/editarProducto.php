@@ -104,7 +104,7 @@
                     </div>
                     <div class="">
                     <button class="btn btn-green btn-lg mt-5" type="submit">Actualizar producto</button>
-                        <a href="<?php echo getUrl("Agro", "Agro", "getProductos",array('pagina' => 1)); ?>"><button class="btn btn-danger btn-lg mt-5" type="button">Cancelar</button></a>
+                        <a href="<?php echo getUrl("Perfil", "Perfil", "misProductos",array('pagina' => 1)); ?>"><button class="btn btn-danger btn-lg mt-5" type="button">Cancelar</button></a>
                         
                     </div>
                 </div>

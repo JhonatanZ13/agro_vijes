@@ -1,5 +1,4 @@
 <?php
-date_default_timezone_set('America/Bogota');
 include_once '../model/Agro/AgroModel.php';
 require_once 'vendor/autoload.php';
 
@@ -11,7 +10,6 @@ Carbon::setlocale('es');
 class AgroController
 {
     public function getHome(){
-
         include_once "../view/home.php";
     }
 
